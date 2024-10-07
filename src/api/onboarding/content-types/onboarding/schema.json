@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "onboardings",
+  "info": {
+    "singularName": "onboarding",
+    "pluralName": "onboardings",
+    "displayName": "Onboarding",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "sort": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
