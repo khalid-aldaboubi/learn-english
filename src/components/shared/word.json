@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_shared_words",
+  "info": {
+    "displayName": "Word",
+    "icon": "volumeUp",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "voice": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "audios"
+      ]
+    },
+    "choice_1": {
+      "type": "string"
+    },
+    "choice_2": {
+      "type": "string"
+    },
+    "choice_3": {
+      "type": "string"
+    },
+    "choice_4": {
+      "type": "string"
+    },
+    "correct_answer": {
+      "type": "enumeration",
+      "enum": [
+        "Choice 1",
+        "Choice 2",
+        "Choice 3",
+        "Choice 4"
+      ]
+    },
+    "hint": {
+      "type": "text"
+    },
+    "sort": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

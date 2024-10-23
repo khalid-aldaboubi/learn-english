@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "speakings",
+  "info": {
+    "singularName": "speaking",
+    "pluralName": "speakings",
+    "displayName": "Speaking"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Sections": {
+      "type": "dynamiczone",
+      "components": [
+        "speaking.paragraph"
+      ]
+    }
+  }
+}

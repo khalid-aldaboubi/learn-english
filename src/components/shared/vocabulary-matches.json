@@ -1,0 +1,101 @@
+{
+  "collectionName": "components_shared_vocabulary_matches",
+  "info": {
+    "displayName": "vocabulary_matches",
+    "icon": "rotate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image_1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "image_2": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "image_3": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "image_4": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "choice_1": {
+      "type": "enumeration",
+      "enum": [
+        "image_1",
+        "image_2",
+        "image_3",
+        "image_4"
+      ]
+    },
+    "choice_2": {
+      "type": "enumeration",
+      "enum": [
+        "image_1",
+        "image_2",
+        "image_3",
+        "image_4"
+      ]
+    },
+    "choice_3": {
+      "type": "enumeration",
+      "enum": [
+        "image_1",
+        "image_2",
+        "image_3",
+        "image_4"
+      ]
+    },
+    "choice_4": {
+      "type": "enumeration",
+      "enum": [
+        "image_1",
+        "image_2",
+        "image_3",
+        "image_4"
+      ]
+    },
+    "hint": {
+      "type": "text"
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6",
+        "section_7",
+        "section_8",
+        "section_9",
+        "section_10"
+      ]
+    }
+  }
+}

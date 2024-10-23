@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_sections",
+  "info": {
+    "displayName": "Section",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "Word": {
+      "displayName": "writing_word",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.writing-word"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "collectionName": "components_shared_descriptions",
+  "info": {
+    "displayName": "Description",
+    "icon": "message",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "voice": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "audios"
+      ]
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "choice_1": {
+      "type": "string"
+    },
+    "choice_2": {
+      "type": "string"
+    },
+    "choice_3": {
+      "type": "string"
+    },
+    "choice_4": {
+      "type": "string"
+    },
+    "choice_5": {
+      "type": "string"
+    },
+    "choice_6": {
+      "type": "string"
+    },
+    "choice_7": {
+      "type": "string"
+    },
+    "correct_answers": {
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "Choice 1",
+        "Choice 2",
+        "Choice 3",
+        "Choice 4",
+        "Choice 5",
+        "Choice 6",
+        "Choice 7"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "sort": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

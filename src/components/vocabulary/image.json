@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_vocabulary_images",
+  "info": {
+    "displayName": "image",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "voice": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "audios"
+      ]
+    },
+    "choice_1": {
+      "type": "string"
+    },
+    "choice_2": {
+      "type": "string"
+    },
+    "choice_3": {
+      "type": "string"
+    },
+    "choice_4": {
+      "type": "string"
+    },
+    "hint": {
+      "type": "text"
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6",
+        "section_7",
+        "section_8",
+        "section_9",
+        "section_10"
+      ]
+    }
+  }
+}

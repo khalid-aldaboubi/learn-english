@@ -1,0 +1,82 @@
+{
+  "collectionName": "components_shared_writing_words",
+  "info": {
+    "displayName": "writing_word",
+    "icon": "brush",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "choice_1": {
+      "type": "string"
+    },
+    "choice_2": {
+      "type": "string"
+    },
+    "choice_3": {
+      "type": "string"
+    },
+    "choice_4": {
+      "type": "string"
+    },
+    "choice_5": {
+      "type": "string"
+    },
+    "choice_6": {
+      "type": "string"
+    },
+    "choice_7": {
+      "type": "string"
+    },
+    "choice_8": {
+      "type": "string"
+    },
+    "choice_9": {
+      "type": "string"
+    },
+    "correct_answers": {
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "choice_1",
+        "choice_2",
+        "choice_3",
+        "choice_4",
+        "choice_5",
+        "choice_6",
+        "choice_7",
+        "choice_8",
+        "choice_9"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": false
+    },
+    "hint": {
+      "type": "text"
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6",
+        "section_7",
+        "section_8",
+        "section_9",
+        "section_10"
+      ]
+    }
+  }
+}

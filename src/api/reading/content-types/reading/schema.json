@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "readings",
+  "info": {
+    "singularName": "reading",
+    "pluralName": "readings",
+    "displayName": "Reading"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Sections": {
+      "type": "dynamiczone",
+      "components": [
+        "reading.paragraph"
+      ]
+    }
+  }
+}
