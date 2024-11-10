@@ -98,6 +98,33 @@ export interface VocabularyImage extends Struct.ComponentSchema {
   };
 }
 
+export interface SpeakingParagraph extends Struct.ComponentSchema {
+  collectionName: 'components_speaking_paragraphs';
+  info: {
+    displayName: 'paragraph';
+    icon: 'volumeUp';
+  };
+  attributes: {
+    paragraph: Schema.Attribute.Text;
+    correct_answer: Schema.Attribute.Text;
+    hint: Schema.Attribute.Text;
+    section: Schema.Attribute.Enumeration<
+      [
+        'section_1',
+        'section_2',
+        'section_3',
+        'section_4',
+        'section_5',
+        'section_6',
+        'section_7',
+        'section_8',
+        'section_9',
+        'section_10',
+      ]
+    >;
+  };
+}
+
 export interface SharedWritingWord extends Struct.ComponentSchema {
   collectionName: 'components_shared_writing_words';
   info: {
@@ -277,7 +304,6 @@ export interface SharedWord extends Struct.ComponentSchema {
       ['Choice 1', 'Choice 2', 'Choice 3', 'Choice 4']
     >;
     hint: Schema.Attribute.Text;
-    sort: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
   };
 }
 
@@ -452,33 +478,6 @@ export interface SharedDescription extends Struct.ComponentSchema {
   };
 }
 
-export interface SpeakingParagraph extends Struct.ComponentSchema {
-  collectionName: 'components_speaking_paragraphs';
-  info: {
-    displayName: 'paragraph';
-    icon: 'volumeUp';
-  };
-  attributes: {
-    paragraph: Schema.Attribute.Text;
-    correct_answer: Schema.Attribute.Text;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
-  };
-}
-
 export interface ReadingParagraph extends Struct.ComponentSchema {
   collectionName: 'components_reading_paragraphs';
   info: {
@@ -512,6 +511,7 @@ declare module '@strapi/strapi' {
       'vocabulary.word': VocabularyWord;
       'vocabulary.voice': VocabularyVoice;
       'vocabulary.image': VocabularyImage;
+      'speaking.paragraph': SpeakingParagraph;
       'shared.writing-word': SharedWritingWord;
       'shared.writing-transalte': SharedWritingTransalte;
       'shared.writing-paragraph': SharedWritingParagraph;
@@ -526,7 +526,6 @@ declare module '@strapi/strapi' {
       'shared.media': SharedMedia;
       'shared.image': SharedImage;
       'shared.description': SharedDescription;
-      'speaking.paragraph': SpeakingParagraph;
       'reading.paragraph': ReadingParagraph;
     }
   }

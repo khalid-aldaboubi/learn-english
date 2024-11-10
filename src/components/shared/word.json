@@ -39,10 +39,6 @@
     },
     "hint": {
       "type": "text"
-    },
-    "sort": {
-      "type": "integer",
-      "default": 0
     }
   }
 }

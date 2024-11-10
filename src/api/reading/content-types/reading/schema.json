@@ -4,7 +4,8 @@
   "info": {
     "singularName": "reading",
     "pluralName": "readings",
-    "displayName": "Reading"
+    "displayName": "Reading",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,57 @@
       "type": "dynamiczone",
       "components": [
         "reading.paragraph"
+      ],
+      "max": 1,
+      "min": 1
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "readings"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "readings"
+    },
+    "semester": {
+      "type": "enumeration",
+      "enum": [
+        "First",
+        "Second"
       ]
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6",
+        "section_7",
+        "section_8",
+        "section_9",
+        "section_10"
+      ]
+    },
+    "name_en": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "name_ar": {
+      "type": "string",
+      "required": true
+    },
+    "sort": {
+      "type": "integer",
+      "required": true,
+      "default": 1
     }
   }
 }

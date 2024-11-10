@@ -25,7 +25,48 @@
         "shared.writing-transalte",
         "shared.writing-paragraph",
         "shared.writing-characters"
+      ],
+      "max": 1,
+      "min": 1
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "writings"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "writings"
+    },
+    "semester": {
+      "type": "enumeration",
+      "enum": [
+        "First",
+        "Second"
       ]
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6",
+        "section_7",
+        "section_8",
+        "section_9",
+        "section_10"
+      ]
+    },
+    "sort": {
+      "type": "integer",
+      "default": 1,
+      "required": true
     }
   }
 }

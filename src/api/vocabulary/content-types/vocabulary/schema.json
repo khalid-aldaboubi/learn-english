@@ -4,7 +4,8 @@
   "info": {
     "singularName": "vocabulary",
     "pluralName": "vocabularies",
-    "displayName": "Vocabulary"
+    "displayName": "Vocabulary",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +19,56 @@
         "vocabulary.voice",
         "vocabulary.image",
         "shared.vocabulary-matches"
+      ],
+      "max": 1,
+      "min": 1
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "vocabularies"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "vocabularies"
+    },
+    "semester": {
+      "type": "enumeration",
+      "enum": [
+        "First",
+        "Second"
       ]
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6",
+        "section_7",
+        "section_8",
+        "section_9",
+        "section_10"
+      ]
+    },
+    "name_en": {
+      "type": "string",
+      "required": true
+    },
+    "name_ar": {
+      "type": "string",
+      "required": true
+    },
+    "sort": {
+      "type": "integer",
+      "required": true,
+      "default": 1
     }
   }
 }

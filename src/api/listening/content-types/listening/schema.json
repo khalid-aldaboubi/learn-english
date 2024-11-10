@@ -28,6 +28,46 @@
         "shared.word",
         "shared.image",
         "shared.description"
+      ],
+      "max": 1,
+      "min": 1,
+      "required": true
+    },
+    "sort": {
+      "type": "integer"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "listenings"
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "listenings"
+    },
+    "Semester": {
+      "type": "enumeration",
+      "enum": [
+        "First",
+        "Second"
+      ]
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6",
+        "section_7",
+        "section_8",
+        "section_9",
+        "section_10"
       ]
     }
   }

@@ -515,36 +515,6 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
-  collectionName: 'categories';
-  info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'Category';
-    description: 'Organize your content into categories';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Schema.Attribute.String;
-    slug: Schema.Attribute.UID;
-    description: Schema.Attribute.Text;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    >;
-  };
-}
-
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -588,6 +558,18 @@ export interface ApiGradeGrade extends Struct.CollectionTypeSchema {
     name_en: Schema.Attribute.String;
     slug: Schema.Attribute.UID;
     name_ar: Schema.Attribute.String;
+    units: Schema.Attribute.Relation<'oneToMany', 'api::unit.unit'>;
+    listenings: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::listening.listening'
+    >;
+    readings: Schema.Attribute.Relation<'oneToMany', 'api::reading.reading'>;
+    speakings: Schema.Attribute.Relation<'oneToMany', 'api::speaking.speaking'>;
+    vocabularies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vocabulary.vocabulary'
+    >;
+    writings: Schema.Attribute.Relation<'oneToMany', 'api::writing.writing'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -617,6 +599,32 @@ export interface ApiListeningListening extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'name_en'>;
     Questions: Schema.Attribute.DynamicZone<
       ['shared.word', 'shared.image', 'shared.description']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
+    sort: Schema.Attribute.Integer;
+    unit: Schema.Attribute.Relation<'manyToOne', 'api::unit.unit'>;
+    grade: Schema.Attribute.Relation<'manyToOne', 'api::grade.grade'>;
+    Semester: Schema.Attribute.Enumeration<['First', 'Second']>;
+    section: Schema.Attribute.Enumeration<
+      [
+        'section_1',
+        'section_2',
+        'section_3',
+        'section_4',
+        'section_5',
+        'section_6',
+        'section_7',
+        'section_8',
+        'section_9',
+        'section_10',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -671,12 +679,42 @@ export interface ApiReadingReading extends Struct.CollectionTypeSchema {
     singularName: 'reading';
     pluralName: 'readings';
     displayName: 'Reading';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Sections: Schema.Attribute.DynamicZone<['reading.paragraph']>;
+    Sections: Schema.Attribute.DynamicZone<['reading.paragraph']> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
+    grade: Schema.Attribute.Relation<'manyToOne', 'api::grade.grade'>;
+    unit: Schema.Attribute.Relation<'manyToOne', 'api::unit.unit'>;
+    semester: Schema.Attribute.Enumeration<['First', 'Second']>;
+    section: Schema.Attribute.Enumeration<
+      [
+        'section_1',
+        'section_2',
+        'section_3',
+        'section_4',
+        'section_5',
+        'section_6',
+        'section_7',
+        'section_8',
+        'section_9',
+        'section_10',
+      ]
+    >;
+    name_en: Schema.Attribute.String & Schema.Attribute.Required;
+    name_ar: Schema.Attribute.String & Schema.Attribute.Required;
+    sort: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -692,48 +730,48 @@ export interface ApiReadingReading extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiSemesterSemester extends Struct.CollectionTypeSchema {
-  collectionName: 'semesters';
-  info: {
-    singularName: 'semester';
-    pluralName: 'semesters';
-    displayName: 'Semester';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    nameEn: Schema.Attribute.String;
-    slug: Schema.Attribute.UID;
-    nameAr: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::semester.semester'
-    >;
-  };
-}
-
 export interface ApiSpeakingSpeaking extends Struct.CollectionTypeSchema {
   collectionName: 'speakings';
   info: {
     singularName: 'speaking';
     pluralName: 'speakings';
     displayName: 'Speaking';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Sections: Schema.Attribute.DynamicZone<['speaking.paragraph']>;
+    Sections: Schema.Attribute.DynamicZone<['speaking.paragraph']> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
+    grade: Schema.Attribute.Relation<'manyToOne', 'api::grade.grade'>;
+    unit: Schema.Attribute.Relation<'manyToOne', 'api::unit.unit'>;
+    semester: Schema.Attribute.Enumeration<['First', 'Second']>;
+    section: Schema.Attribute.Enumeration<
+      [
+        'section_1',
+        'section_2',
+        'section_3',
+        'section_4',
+        'section_5',
+        'section_6',
+        'section_7',
+        'section_8',
+        'section_9',
+        'section_10',
+      ]
+    >;
+    sort: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    name_en: Schema.Attribute.String & Schema.Attribute.Required;
+    name_ar: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -768,6 +806,29 @@ export interface ApiUnitUnit extends Struct.CollectionTypeSchema {
     image: Schema.Attribute.Media<'images' | 'files'>;
     background: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
+    listenings: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::listening.listening'
+    >;
+    grade: Schema.Attribute.Relation<'manyToOne', 'api::grade.grade'>;
+    semester: Schema.Attribute.Enumeration<['First', 'Second']> &
+      Schema.Attribute.Required;
+    unit_number: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
+    readings: Schema.Attribute.Relation<'oneToMany', 'api::reading.reading'>;
+    speakings: Schema.Attribute.Relation<'oneToMany', 'api::speaking.speaking'>;
+    vocabularies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vocabulary.vocabulary'
+    >;
+    writings: Schema.Attribute.Relation<'oneToMany', 'api::writing.writing'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -786,6 +847,7 @@ export interface ApiVocabularyVocabulary extends Struct.CollectionTypeSchema {
     singularName: 'vocabulary';
     pluralName: 'vocabularies';
     displayName: 'Vocabulary';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -798,7 +860,36 @@ export interface ApiVocabularyVocabulary extends Struct.CollectionTypeSchema {
         'vocabulary.image',
         'shared.vocabulary-matches',
       ]
+    > &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
+    grade: Schema.Attribute.Relation<'manyToOne', 'api::grade.grade'>;
+    unit: Schema.Attribute.Relation<'manyToOne', 'api::unit.unit'>;
+    semester: Schema.Attribute.Enumeration<['First', 'Second']>;
+    section: Schema.Attribute.Enumeration<
+      [
+        'section_1',
+        'section_2',
+        'section_3',
+        'section_4',
+        'section_5',
+        'section_6',
+        'section_7',
+        'section_8',
+        'section_9',
+        'section_10',
+      ]
     >;
+    name_en: Schema.Attribute.String & Schema.Attribute.Required;
+    name_ar: Schema.Attribute.String & Schema.Attribute.Required;
+    sort: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -835,7 +926,34 @@ export interface ApiWritingWriting extends Struct.CollectionTypeSchema {
         'shared.writing-paragraph',
         'shared.writing-characters',
       ]
+    > &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 1;
+        },
+        number
+      >;
+    grade: Schema.Attribute.Relation<'manyToOne', 'api::grade.grade'>;
+    unit: Schema.Attribute.Relation<'manyToOne', 'api::unit.unit'>;
+    semester: Schema.Attribute.Enumeration<['First', 'Second']>;
+    section: Schema.Attribute.Enumeration<
+      [
+        'section_1',
+        'section_2',
+        'section_3',
+        'section_4',
+        'section_5',
+        'section_6',
+        'section_7',
+        'section_8',
+        'section_9',
+        'section_10',
+      ]
     >;
+    sort: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1227,13 +1345,11 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
-      'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::grade.grade': ApiGradeGrade;
       'api::listening.listening': ApiListeningListening;
       'api::onboarding.onboarding': ApiOnboardingOnboarding;
       'api::reading.reading': ApiReadingReading;
-      'api::semester.semester': ApiSemesterSemester;
       'api::speaking.speaking': ApiSpeakingSpeaking;
       'api::unit.unit': ApiUnitUnit;
       'api::vocabulary.vocabulary': ApiVocabularyVocabulary;

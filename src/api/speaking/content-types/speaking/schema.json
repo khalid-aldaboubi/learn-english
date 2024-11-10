@@ -4,7 +4,8 @@
   "info": {
     "singularName": "speaking",
     "pluralName": "speakings",
-    "displayName": "Speaking"
+    "displayName": "Speaking",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,56 @@
       "type": "dynamiczone",
       "components": [
         "speaking.paragraph"
+      ],
+      "max": 1,
+      "min": 1
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "speakings"
+    },
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "speakings"
+    },
+    "semester": {
+      "type": "enumeration",
+      "enum": [
+        "First",
+        "Second"
       ]
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "section_1",
+        "section_2",
+        "section_3",
+        "section_4",
+        "section_5",
+        "section_6",
+        "section_7",
+        "section_8",
+        "section_9",
+        "section_10"
+      ]
+    },
+    "sort": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "name_en": {
+      "type": "string",
+      "required": true
+    },
+    "name_ar": {
+      "type": "string",
+      "required": true
     }
   }
 }

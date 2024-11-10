@@ -38,6 +38,56 @@
       "type": "customField",
       "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
       "customField": "plugin::color-picker.color"
+    },
+    "listenings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::listening.listening",
+      "mappedBy": "unit"
+    },
+    "grade": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::grade.grade",
+      "inversedBy": "units"
+    },
+    "semester": {
+      "type": "enumeration",
+      "enum": [
+        "First",
+        "Second"
+      ],
+      "required": true
+    },
+    "unit_number": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "readings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reading.reading",
+      "mappedBy": "unit"
+    },
+    "speakings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::speaking.speaking",
+      "mappedBy": "unit"
+    },
+    "vocabularies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vocabulary.vocabulary",
+      "mappedBy": "unit"
+    },
+    "writings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::writing.writing",
+      "mappedBy": "unit"
     }
   }
 }
