@@ -66,6 +66,21 @@ export interface VocabularyVoice extends Struct.ComponentSchema {
   };
 }
 
+export interface VocabularyMatching extends Struct.ComponentSchema {
+  collectionName: 'components_vocabulary_matchings';
+  info: {
+    displayName: 'Matching';
+    icon: 'oneToOne';
+  };
+  attributes: {
+    option_1_word: Schema.Attribute.String;
+    optiona_1_image: Schema.Attribute.Media<'images' | 'files'>;
+    option_2_word: Schema.Attribute.String;
+    option_2_image: Schema.Attribute.Media<'images' | 'files'>;
+    option_3_word: Schema.Attribute.String;
+  };
+}
+
 export interface VocabularyImage extends Struct.ComponentSchema {
   collectionName: 'components_vocabulary_images';
   info: {
@@ -143,37 +158,7 @@ export interface SharedWritingWord extends Struct.ComponentSchema {
     choice_7: Schema.Attribute.String;
     choice_8: Schema.Attribute.String;
     choice_9: Schema.Attribute.String;
-    correct_answers: Schema.Attribute.JSON &
-      Schema.Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        [
-          'choice_1',
-          'choice_2',
-          'choice_3',
-          'choice_4',
-          'choice_5',
-          'choice_6',
-          'choice_7',
-          'choice_8',
-          'choice_9',
-        ]
-      > &
-      Schema.Attribute.DefaultTo<'[]'>;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
+    correct_answer: Schema.Attribute.String;
   };
 }
 
@@ -242,33 +227,6 @@ export interface SharedWritingCharacters extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files'>;
-    character_1: Schema.Attribute.String;
-    character_2: Schema.Attribute.String;
-    character_3: Schema.Attribute.String;
-    character_4: Schema.Attribute.String;
-    character_5: Schema.Attribute.String;
-    character_6: Schema.Attribute.String;
-    character_7: Schema.Attribute.String;
-    character_8: Schema.Attribute.String;
-    character_9: Schema.Attribute.String;
-    character_10: Schema.Attribute.String;
-    correct_answers: Schema.Attribute.JSON &
-      Schema.Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        [
-          'character_1',
-          'character_2',
-          'character_3',
-          'character_4',
-          'character_5',
-          'character_6',
-          'character_7',
-          'character_8',
-          'character_9',
-          'character_10',
-        ]
-      > &
-      Schema.Attribute.DefaultTo<'[]'>;
     hint: Schema.Attribute.Text;
     section: Schema.Attribute.Enumeration<
       [
@@ -284,6 +242,7 @@ export interface SharedWritingCharacters extends Struct.ComponentSchema {
         'section_10',
       ]
     >;
+    correct_answer: Schema.Attribute.String;
   };
 }
 
@@ -510,6 +469,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'vocabulary.word': VocabularyWord;
       'vocabulary.voice': VocabularyVoice;
+      'vocabulary.matching': VocabularyMatching;
       'vocabulary.image': VocabularyImage;
       'speaking.paragraph': SpeakingParagraph;
       'shared.writing-word': SharedWritingWord;

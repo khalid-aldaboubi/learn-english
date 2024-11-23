@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_vocabulary_matchings",
+  "info": {
+    "displayName": "Matching",
+    "icon": "oneToOne"
+  },
+  "options": {},
+  "attributes": {
+    "option_1_word": {
+      "type": "string"
+    },
+    "optiona_1_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "option_2_word": {
+      "type": "string"
+    },
+    "option_2_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "option_3_word": {
+      "type": "string"
+    }
+  }
+}

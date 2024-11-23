@@ -16,53 +16,6 @@
         "files"
       ]
     },
-    "character_1": {
-      "type": "string"
-    },
-    "character_2": {
-      "type": "string"
-    },
-    "character_3": {
-      "type": "string"
-    },
-    "character_4": {
-      "type": "string"
-    },
-    "character_5": {
-      "type": "string"
-    },
-    "character_6": {
-      "type": "string"
-    },
-    "character_7": {
-      "type": "string"
-    },
-    "character_8": {
-      "type": "string"
-    },
-    "character_9": {
-      "type": "string"
-    },
-    "character_10": {
-      "type": "string"
-    },
-    "correct_answers": {
-      "type": "customField",
-      "default": "[]",
-      "options": [
-        "character_1",
-        "character_2",
-        "character_3",
-        "character_4",
-        "character_5",
-        "character_6",
-        "character_7",
-        "character_8",
-        "character_9",
-        "character_10"
-      ],
-      "customField": "plugin::multi-select.multi-select"
-    },
     "hint": {
       "type": "text"
     },
@@ -80,6 +33,9 @@
         "section_9",
         "section_10"
       ]
+    },
+    "correct_answer": {
+      "type": "string"
     }
   }
 }
