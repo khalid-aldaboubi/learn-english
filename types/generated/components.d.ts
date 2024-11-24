@@ -89,6 +89,33 @@ export interface SpeakingParagraph extends Struct.ComponentSchema {
   };
 }
 
+export interface ReadingParagraph extends Struct.ComponentSchema {
+  collectionName: 'components_reading_paragraphs';
+  info: {
+    displayName: 'paragraph';
+    icon: 'chartBubble';
+    description: '';
+  };
+  attributes: {
+    paragraph: Schema.Attribute.Text;
+    hint: Schema.Attribute.Text;
+    section: Schema.Attribute.Enumeration<
+      [
+        'section_1',
+        'section_2',
+        'section_3',
+        'section_4',
+        'section_5',
+        'section_6',
+        'section_7',
+        'section_8',
+        'section_9',
+        'section_10',
+      ]
+    >;
+  };
+}
+
 export interface SharedWritingWord extends Struct.ComponentSchema {
   collectionName: 'components_shared_writing_words';
   info: {
@@ -365,6 +392,7 @@ declare module '@strapi/strapi' {
       'vocabulary.matching': VocabularyMatching;
       'vocabulary.image': VocabularyImage;
       'speaking.paragraph': SpeakingParagraph;
+      'reading.paragraph': ReadingParagraph;
       'shared.writing-word': SharedWritingWord;
       'shared.writing-transalte': SharedWritingTransalte;
       'shared.writing-paragraph': SharedWritingParagraph;
@@ -380,7 +408,6 @@ declare module '@strapi/strapi' {
       'shared.media': SharedMedia;
       'shared.image': SharedImage;
       'shared.description': SharedDescription;
-      'reading.paragraph': ReadingParagraph;
     }
   }
 }

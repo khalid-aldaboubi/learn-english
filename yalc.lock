@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "my-dashboard": {
+      "signature": "f025bfb5b015e1efc34a49cfe5c796b4",
+      "replaced": "link:.yalc/my-dashboard"
+    }
+  }
+}

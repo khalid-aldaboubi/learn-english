@@ -13,13 +13,20 @@
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^28.0.1",
-    "@strapi/email": "^0.0.0",
+    "@strapi/content-manager": "^5.4.1",
+    "@strapi/content-releases": "^5.4.1",
+    "@strapi/content-type-builder": "^5.4.1",
+    "@strapi/design-system": "^1.19.0",
+    "@strapi/email": "^5.4.1",
     "@strapi/helper-plugin": "^4.25.12",
+    "@strapi/i18n": "^5.4.1",
     "@strapi/icons": "^1.19.0",
     "@strapi/plugin-cloud": "5.0.3",
-    "@strapi/plugin-color-picker": "^5.0.6",
+    "@strapi/plugin-color-picker": "^5.4.1",
     "@strapi/plugin-users-permissions": "5.0.3",
+    "@strapi/review-workflows": "^5.4.1",
     "@strapi/strapi": "5.0.3",
+    "@strapi/upload": "^5.4.1",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
     "pg": "8.8.0",
@@ -28,13 +35,14 @@
     "react-router-dom": "^6.0.0",
     "strapi-plugin-multi-select": "^2.1.1",
     "strapi-plugin-populate-deep": "^3.0.1",
-    "styled-components": "^6.0.0"
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^4.3.2",
+    "npm-force-resolutions": "^0.0.10",
     "typescript": "^5"
   },
   "engines": {
@@ -43,5 +51,8 @@
   },
   "strapi": {
     "uuid": "1516035f-622b-438b-bc62-c10d122db081"
+  },
+  "resolutions": {
+    "styled-components": "^6.1.13"
   }
 }

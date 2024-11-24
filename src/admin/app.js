@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import favIcon from "./fav.ico";
+import { Dashboard } from "@strapi/icons"; // Import the icon explicitly
 
 const config = {
   // Replace the Learn English logo in auth (login) views
@@ -70,6 +71,8 @@ const config = {
 
       "Settings.profile.form.section.experience.interfaceLanguageHelp":
         "Preference changes will apply only to you.",
+        "app.components.LeftMenu.navbrand.title": "Learn English",
+        "dashy.menu.label": "My Dashboard",
     },
   },
   // Disable video tutorials
@@ -80,6 +83,19 @@ const config = {
 
 const bootstrap = (app) => {
   console.log(app);
+
+  // Add your plugin to the admin panel menu
+  app.addMenuLink({
+    to: "/plugins/dashy", // The route for your plugin
+    icon: Dashboard, // Use a default Strapi icon, or replace with your custom icon
+    intlLabel: {
+      id: "dashy.menu.label", // Translation key for the label
+      defaultMessage: "My Dashboard", // Default text for the menu link
+    },
+    permissions: [], // Add permissions if needed, e.g., ['read', 'write']
+  });
+
+
 };
 
 export default {
