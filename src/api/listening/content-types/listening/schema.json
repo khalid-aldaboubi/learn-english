@@ -27,7 +27,8 @@
       "components": [
         "shared.word",
         "shared.image",
-        "shared.description"
+        "shared.description",
+        "shared.voice"
       ],
       "max": 1,
       "min": 1,

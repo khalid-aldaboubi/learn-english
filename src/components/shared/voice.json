@@ -1,21 +1,12 @@
 {
-  "collectionName": "components_vocabulary_images",
+  "collectionName": "components_shared_voices",
   "info": {
-    "displayName": "image",
-    "icon": "landscape",
+    "displayName": "Voice",
+    "icon": "volumeUp",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "voice": {
       "type": "media",
       "multiple": false,
@@ -25,25 +16,28 @@
         "audios"
       ]
     },
-    "choice_1": {
+    "question": {
       "type": "string"
     },
-    "choice_2": {
+    "option_1": {
       "type": "string"
     },
-    "choice_3": {
+    "option_2": {
       "type": "string"
     },
-    "choice_4": {
+    "option_3": {
+      "type": "string"
+    },
+    "option_4": {
       "type": "string"
     },
     "correct_answer": {
       "type": "enumeration",
       "enum": [
-        "Choice_1",
-        "Choice_2",
-        "Choice_3",
-        "Choice_4"
+        "Option_1",
+        "Option_2",
+        "Option_3",
+        "Option_4"
       ]
     }
   }

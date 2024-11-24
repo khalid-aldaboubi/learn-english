@@ -2,7 +2,8 @@
   "collectionName": "components_speaking_paragraphs",
   "info": {
     "displayName": "paragraph",
-    "icon": "volumeUp"
+    "icon": "volumeUp",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,24 +12,6 @@
     },
     "correct_answer": {
       "type": "text"
-    },
-    "hint": {
-      "type": "text"
-    },
-    "section": {
-      "type": "enumeration",
-      "enum": [
-        "section_1",
-        "section_2",
-        "section_3",
-        "section_4",
-        "section_5",
-        "section_6",
-        "section_7",
-        "section_8",
-        "section_9",
-        "section_10"
-      ]
     }
   }
 }

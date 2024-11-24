@@ -36,9 +36,6 @@
         "Choice 3",
         "Choice 4"
       ]
-    },
-    "hint": {
-      "type": "text"
     }
   }
 }

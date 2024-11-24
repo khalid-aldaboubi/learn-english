@@ -598,7 +598,7 @@ export interface ApiListeningListening extends Struct.CollectionTypeSchema {
     name_ar: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'name_en'>;
     Questions: Schema.Attribute.DynamicZone<
-      ['shared.word', 'shared.image', 'shared.description']
+      ['shared.word', 'shared.image', 'shared.description', 'shared.voice']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<

@@ -18,21 +18,6 @@ export interface VocabularyWord extends Struct.ComponentSchema {
     choice_7: Schema.Attribute.String;
     choice_8: Schema.Attribute.String;
     choice_9: Schema.Attribute.String;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
   };
 }
 
@@ -41,28 +26,17 @@ export interface VocabularyVoice extends Struct.ComponentSchema {
   info: {
     displayName: 'voice';
     icon: 'headphone';
+    description: '';
   };
   attributes: {
     image_1: Schema.Attribute.Media<'images' | 'files'>;
     image_2: Schema.Attribute.Media<'images' | 'files'>;
     image_3: Schema.Attribute.Media<'images' | 'files'>;
     image_4: Schema.Attribute.Media<'images' | 'files'>;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
     voice: Schema.Attribute.Media<'files' | 'audios'>;
+    correct_answer: Schema.Attribute.Enumeration<
+      ['Image_1', 'Image_2', 'Image_3', 'Image_4']
+    >;
   };
 }
 
@@ -71,10 +45,11 @@ export interface VocabularyMatching extends Struct.ComponentSchema {
   info: {
     displayName: 'Matching';
     icon: 'oneToOne';
+    description: '';
   };
   attributes: {
     option_1_word: Schema.Attribute.String;
-    optiona_1_image: Schema.Attribute.Media<'images' | 'files'>;
+    option_1_image: Schema.Attribute.Media<'images' | 'files'>;
     option_2_word: Schema.Attribute.String;
     option_2_image: Schema.Attribute.Media<'images' | 'files'>;
     option_3_word: Schema.Attribute.String;
@@ -95,20 +70,8 @@ export interface VocabularyImage extends Struct.ComponentSchema {
     choice_2: Schema.Attribute.String;
     choice_3: Schema.Attribute.String;
     choice_4: Schema.Attribute.String;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
+    correct_answer: Schema.Attribute.Enumeration<
+      ['Choice_1', 'Choice_2', 'Choice_3', 'Choice_4']
     >;
   };
 }
@@ -118,25 +81,11 @@ export interface SpeakingParagraph extends Struct.ComponentSchema {
   info: {
     displayName: 'paragraph';
     icon: 'volumeUp';
+    description: '';
   };
   attributes: {
     paragraph: Schema.Attribute.Text;
     correct_answer: Schema.Attribute.Text;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
   };
 }
 
@@ -172,21 +121,6 @@ export interface SharedWritingTransalte extends Struct.ComponentSchema {
   attributes: {
     paragraph: Schema.Attribute.Text;
     correct_answer: Schema.Attribute.Text;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
   };
 }
 
@@ -200,21 +134,6 @@ export interface SharedWritingParagraph extends Struct.ComponentSchema {
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files'>;
     correct_answer: Schema.Attribute.Text;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
   };
 }
 
@@ -227,21 +146,6 @@ export interface SharedWritingCharacters extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files'>;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
     correct_answer: Schema.Attribute.String;
   };
 }
@@ -262,7 +166,26 @@ export interface SharedWord extends Struct.ComponentSchema {
     correct_answer: Schema.Attribute.Enumeration<
       ['Choice 1', 'Choice 2', 'Choice 3', 'Choice 4']
     >;
-    hint: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedVoice extends Struct.ComponentSchema {
+  collectionName: 'components_shared_voices';
+  info: {
+    displayName: 'Voice';
+    icon: 'volumeUp';
+    description: '';
+  };
+  attributes: {
+    voice: Schema.Attribute.Media<'files' | 'audios'>;
+    question: Schema.Attribute.String;
+    option_1: Schema.Attribute.String;
+    option_2: Schema.Attribute.String;
+    option_3: Schema.Attribute.String;
+    option_4: Schema.Attribute.String;
+    correct_answer: Schema.Attribute.Enumeration<
+      ['Option_1', 'Option_2', 'Option_3', 'Option_4']
+    >;
   };
 }
 
@@ -289,21 +212,6 @@ export interface SharedVocabularyMatches extends Struct.ComponentSchema {
     >;
     choice_4: Schema.Attribute.Enumeration<
       ['image_1', 'image_2', 'image_3', 'image_4']
-    >;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
     >;
   };
 }
@@ -446,21 +354,6 @@ export interface ReadingParagraph extends Struct.ComponentSchema {
   };
   attributes: {
     paragraph: Schema.Attribute.Text;
-    hint: Schema.Attribute.Text;
-    section: Schema.Attribute.Enumeration<
-      [
-        'section_1',
-        'section_2',
-        'section_3',
-        'section_4',
-        'section_5',
-        'section_6',
-        'section_7',
-        'section_8',
-        'section_9',
-        'section_10',
-      ]
-    >;
   };
 }
 
@@ -477,6 +370,7 @@ declare module '@strapi/strapi' {
       'shared.writing-paragraph': SharedWritingParagraph;
       'shared.writing-characters': SharedWritingCharacters;
       'shared.word': SharedWord;
+      'shared.voice': SharedVoice;
       'shared.vocabulary-matches': SharedVocabularyMatches;
       'shared.slider': SharedSlider;
       'shared.seo': SharedSeo;
